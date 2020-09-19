@@ -1,0 +1,90 @@
+﻿@{
+    Layout = null;
+}
+
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<link href="~/Content/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="~/Content/buttons.bootstrap.min.css" rel="stylesheet" />
+<link href="~/Content/SideNav.css" rel="stylesheet" />
+<link href="~/Content/Employee.css" rel="stylesheet" />
+
+
+<div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="#" id="getAllEmpData">Detailed Employee Data</a>
+    <a href="#" id="CalculateAverages">Calculate Averages</a>
+</div>
+
+<div id="main">
+    <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Please click here to open</span>
+
+    <div class="divPage">
+
+        <div id="div_getAllEmpData" style="display:none;">
+            @*<input type="button" id="getAllEmpData" value="Get All Employee Details" />*@
+            <br />
+            <table id="tblAllEmployee" class="display cell-border compact stripe" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Employee Name</th>
+                        <th>Employee Salary</th>
+                        <th>Employee Age</th>
+                        <th>Profile Image</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+
+        <div id="div_AverageCalculations" style="display:none">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="AverageCalculationDiv">Average Age : <span id="AvgAge"></span></div>
+                </div>
+
+                <div class="col-lg-3">
+                    <div class="AverageCalculationDiv">Average Salary : <span id="AvgSalary"></span></div>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <input class="myButton" type="button" id="BelowAverageAge" value="Below Average Age" />
+                <input class="myButton" type="button" id="AboveAverageAge" value="Above Average Age" />
+                <input class="myButton" type="button" id="BelowAverageSalary" value="Below Average Salary" />
+                <input class="myButton" type="button" id="AboveAverageSalary" value="Above Average Salary" />
+
+            </div>
+
+            <div id="div_getAllEmpAverages" style="display:none">
+                @*<input type="button" id="getAllEmpData" value="Get All Employee Details" />*@
+                <br />
+                <table id="tblAllEmployeeAverages" class="display cell-border compact stripe" cellspacing="0" width="100%" style="display:none">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Employee Name</th>
+                            <th>Employee Salary</th>
+                            <th>Employee Age</th>
+                            <th>Profile Image</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="AverageCalculationDiv" id="div_ErrorMessage" style="display:none;">
+            <span>Multiple request happened. Please click again to get response.</span>
+        </div>
+         
+        <div class="loader"><!-- Place at bottom of page --></div>
+    </div>
+</div>
+
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script src="~/Scripts/jquery.dataTables.min.js"></script>
+<script src="~/Scripts/dataTables.bootstrap.min.js"></script>
+<script src="~/Scripts/dataTables.buttons.min.js"></script>
+<script src="~/Scripts/app/EmployeeDetails.js"></script>
